@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>書籍管理システム - 在庫確認画面</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table th, table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        table th {
+            background-color: #f8f8f8;
+        }
+
+        .stock {
+            color: green;
+            font-weight: bold;
+        }
+
+        .out-of-stock {
+            color: red;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>書籍管理システム - 在庫確認</h1>
+    </header>
+
+    <div class="container">
+        <h2>在庫確認</h2>
+        <p>現在の在庫状況は以下の通りです。</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>タイトル</th>
+                    <th>著者</th>
+                    <th>ISBN</th>
+                    <th>在庫数</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>未来のミライ</td>
+                    <td>細田 守</td>
+                    <td>978-4-0000-0000-1</td>
+                    <td><span class="stock">5</span></td>
+                </tr>
+                <tr>
+                    <td>君の名は。</td>
+                    <td>新海 誠</td>
+                    <td>978-4-0000-0000-2</td>
+                    <td><span class="out-of-stock">0</span></td>
+                </tr>
+                <tr>
+                    <td>風の谷のナウシカ</td>
+                    <td>宮崎 駿</td>
+                    <td>978-4-0000-0000-3</td>
+                    <td><span class="stock">2</span></td>
+                </tr>
+                <tr>
+                    <td>ハリー・ポッターと賢者の石</td>
+                    <td>J.K.ローリング</td>
+                    <td>978-4-0000-0000-4</td>
+                    <td><span class="out-of-stock">0</span></td>
+                </tr>
+                <tr>
+                    <td>ドラゴンボール</td>
+                    <td>鳥山 明</td>
+                    <td>978-4-0000-0000-5</td>
+                    <td><span class="stock">8</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <footer>
+        <p>© 2024 書籍管理システム</p>
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+@startuml
+title 書籍管理システム - ユーザーインターフェースの概要
+
+package "ユーザーインターフェース" {
+    rectangle "書籍検索画面" as SearchScreen {
+        note as SearchNote
+            - 検索条件入力
+            - 検索結果のリスト表示
+            - 在庫状況の確認
+        end note
+    }
+
+    rectangle "在庫確認画面" as InventoryScreen {
+        note as InventoryNote
+            - 書籍の在庫情報を詳細に表示
+            - 利用者が在庫を確認可能
+        end note
+    }
+
+    rectangle "貸出予約画面" as ReservationScreen {
+        note as ReservationNote
+            - 書籍の貸出予約を行うフォーム
+            - ユーザー情報、予約日を入力
+        end note
+    }
+
+    rectangle "書籍登録画面" as RegistrationScreen {
+        note as RegistrationNote
+            - 書籍情報の登録フォーム
+            - タイトル、著者、ISBN、在庫数を入力
+        end note
+        label "管理者"
+    }
+
+    rectangle "書籍情報編集画面" as EditScreen {
+        note as EditNote
+            - 既存の書籍情報の編集
+            - 書籍情報の更新機能
+        end note
+        label "管理者"
+    }
+
+    rectangle "書籍削除画面" as DeleteScreen {
+        note as DeleteNote
+            - 書籍情報の削除
+            - 不要な書籍をシステムから削除
+        end note
+        label "管理者"
+    }
+}
+
+' 各画面の関係を示す矢印
+SearchScreen --> InventoryScreen : 書籍を選択
+InventoryScreen --> ReservationScreen : 在庫がある場合
+SearchScreen --> ReservationScreen : 直接予約も可能
+RegistrationScreen --> EditScreen : 登録後、編集が可能
+EditScreen --> DeleteScreen : 不要な場合削除
+@enduml

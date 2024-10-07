@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>書籍管理システム - 書籍検索画面</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        header,
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .container {
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .search-form {
+            margin-bottom: 20px;
+        }
+
+        .search-form input {
+            padding: 10px;
+            margin: 5px;
+            width: calc(100% - 30px);
+        }
+
+        .search-form button {
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .search-form button:hover {
+            background-color: #0056b3;
+        }
+
+        .book-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .book-item {
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #fafafa;
+        }
+
+        .book-item h3 {
+            margin: 0 0 10px 0;
+        }
+
+        .book-item .details {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .book-item button {
+            padding: 5px 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .book-item button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>書籍管理システム</h1>
+        <p>ログイン中: 一般ユーザー (user01) | <a href="#" style="color: #fff;">ログアウト</a></p>
+    </header>
+
+    <div class="container">
+        <div class="search-form">
+            <h2>書籍検索</h2>
+            <input type="text" id="title" placeholder="タイトルで検索...">
+            <input type="text" id="author" placeholder="著者で検索...">
+            <input type="text" id="genre" placeholder="ジャンルで検索...">
+            <button onclick="searchBooks()">検索</button>
+        </div>
+
+        <ul class="book-list">
+            <li class="book-item">
+                <h3>未来のミライ</h3>
+                <div class="details">
+                    <span>著者: 細田 守</span>
+                    <span>在庫状況: 3冊</span>
+                    <button>詳細を見る</button>
+                </div>
+            </li>
+            <li class="book-item">
+                <h3>君の名は。</h3>
+                <div class="details">
+                    <span>著者: 新海 誠</span>
+                    <span>在庫状況: 5冊</span>
+                    <button>詳細を見る</button>
+                </div>
+            </li>
+            <li class="book-item">
+                <h3>ハリー・ポッターと賢者の石</h3>
+                <div class="details">
+                    <span>著者: J.K.ローリング</span>
+                    <span>在庫状況: 在庫切れ</span>
+                    <button>詳細を見る</button>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <footer>
+        <p>© 2024 書籍管理システム</p>
+    </footer>
+
+    <script>
+        function searchBooks() {
+            // サンプルの検索機能 - 実際の検索処理はここに実装します
+            alert("検索機能が呼び出されました。");
+        }
+    </script>
+
+</body>
+
+</html>

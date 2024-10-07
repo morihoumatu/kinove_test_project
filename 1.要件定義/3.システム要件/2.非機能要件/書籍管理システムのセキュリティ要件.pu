@@ -1,0 +1,32 @@
+```plantuml
+@startuml
+title 書籍管理システムのセキュリティ要件
+
+package "セキュリティ要件" {
+    :認証機能;
+    :アクセス権限の設定;
+    :データの暗号化;
+    :ログ管理;
+}
+
+note right
+  ユーザーIDとパスワード
+  による認証を行う
+end note
+
+note right
+  利用者の種類に応じた
+  アクセス権限を設定
+end note
+
+note right
+  パスワードや個人情報を
+  暗号化して保存
+end note
+
+note right
+  重要な操作をログとして
+  記録し不正行為の追跡を可能に
+end note
+
+@enduml

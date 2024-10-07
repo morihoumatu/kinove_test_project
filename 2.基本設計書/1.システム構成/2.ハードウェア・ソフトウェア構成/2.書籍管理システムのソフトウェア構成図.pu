@@ -1,0 +1,30 @@
+@startuml
+title 書籍管理システムのソフトウェア構成図
+
+node "クライアント" {
+    [React 17]
+}
+
+node "Webサーバ" {
+    [Apache HTTP Server 2.4]
+}
+
+node "アプリケーションサーバ" {
+    [Apache Tomcat 9.0]
+    [Java 17]
+}
+
+database "データベースサーバ" {
+    [PostgreSQL 13]
+}
+
+cloud "外部通知サービス" {
+    [Twilio API]
+}
+
+[React 17] --> [Apache HTTP Server 2.4] : HTTPリクエスト
+[Apache HTTP Server 2.4] --> [Apache Tomcat 9.0] : リクエスト転送
+[Apache Tomcat 9.0] --> [PostgreSQL 13] : データの読み書き
+[Apache Tomcat 9.0] --> [Twilio API] : SMS通知送信
+
+@enduml

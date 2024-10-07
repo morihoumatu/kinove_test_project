@@ -1,0 +1,25 @@
+@startuml
+title 書籍管理システムのパフォーマンス要件
+
+package "パフォーマンス要件" {
+    :応答時間;
+    :同時接続数;
+    :データ処理能力;
+}
+
+note right
+  各機能の操作に対する応答は
+  2秒以内に返すこと
+end note
+
+note right
+  最大100人の同時接続を
+  サポートすること
+end note
+
+note right
+  1日最大500件の書籍登録・更新
+  処理でもパフォーマンス維持
+end note
+
+@enduml

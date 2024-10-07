@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>書籍管理システム - 貸出予約画面</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        header,
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .container {
+            padding: 20px;
+            max-width: 600px;
+            margin: auto;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .reservation-form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .reservation-form label {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .reservation-form input {
+            padding: 10px;
+            margin-top: 5px;
+            font-size: 16px;
+        }
+
+        .reservation-form button {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .reservation-form button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>書籍管理システム</h1>
+        <p>ログイン中: 一般ユーザー (user01) | <a href="#" style="color: #fff;">ログアウト</a></p>
+    </header>
+
+    <div class="container">
+        <h2>貸出予約</h2>
+        <form class="reservation-form" id="reservationForm">
+            <label for="title">タイトル</label>
+            <input type="text" id="title" name="title" value="未来のミライ" readonly>
+
+            <label for="author">著者</label>
+            <input type="text" id="author" name="author" value="細田 守" readonly>
+
+            <label for="userId">ユーザーID</label>
+            <input type="text" id="userId" name="userId" value="user01" readonly>
+
+            <label for="reservationDate">予約日</label>
+            <input type="date" id="reservationDate" name="reservationDate" value="2024-10-05" required>
+
+            <button type="button" onclick="reserveBook()">予約する</button>
+        </form>
+    </div>
+
+    <footer>
+        <p>© 2024 書籍管理システム</p>
+    </footer>
+
+    <script>
+        function reserveBook() {
+            // サンプルの予約処理 - 実際の予約処理はここに実装します
+            const form = document.getElementById('reservationForm');
+            const formData = new FormData(form);
+
+            const reservationDetails = {
+                title: formData.get('title'),
+                author: formData.get('author'),
+                userId: formData.get('userId'),
+                reservationDate: formData.get('reservationDate'),
+            };
+
+            alert("貸出予約が完了しました:\n" +
+                "タイトル: " + reservationDetails.title + "\n" +
+                "著者: " + reservationDetails.author + "\n" +
+                "ユーザーID: " + reservationDetails.userId + "\n" +
+                "予約日: " + reservationDetails.reservationDate);
+        }
+    </script>
+
+</body>
+
+</html>

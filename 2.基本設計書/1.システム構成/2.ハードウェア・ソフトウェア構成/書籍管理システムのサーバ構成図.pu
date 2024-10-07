@@ -1,0 +1,25 @@
+@startuml
+title 書籍管理システムのサーバ構成図
+
+node "負荷分散装置 (Nginx)" {
+    [ロードバランサー]
+}
+
+node "Webサーバ" {
+    [Apache HTTP Server]
+}
+
+node "アプリケーションサーバ" {
+    [Tomcat]
+    [Java 17]
+}
+
+database "データベースサーバ" {
+    [PostgreSQL]
+}
+
+[ロードバランサー] --> [Apache HTTP Server] : リクエストの分散
+[Apache HTTP Server] --> [Tomcat] : リクエストの転送
+[Tomcat] --> [PostgreSQL] : データの読み書き
+
+@enduml

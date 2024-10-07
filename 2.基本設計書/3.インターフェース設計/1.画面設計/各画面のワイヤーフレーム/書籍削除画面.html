@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>書籍管理システム - 書籍削除画面</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        table th,
+        table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        table th {
+            background-color: #f8f8f8;
+        }
+
+        button {
+            background-color: #dc3545;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #c82333;
+        }
+
+        .back-link {
+            display: block;
+            margin-top: 20px;
+            text-align: right;
+        }
+
+        .back-link a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>書籍管理システム - 書籍削除画面</h1>
+    </header>
+
+    <div class="container">
+        <h2>削除する書籍を選択してください</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>タイトル</th>
+                    <th>著者</th>
+                    <th>ISBN</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>未来のミライ</td>
+                    <td>細田 守</td>
+                    <td>978-4-0000-0000-1</td>
+                    <td><button onclick="confirmDelete('未来のミライ')">削除</button></td>
+                </tr>
+                <tr>
+                    <td>君の名は。</td>
+                    <td>新海 誠</td>
+                    <td>978-4-0000-0000-2</td>
+                    <td><button onclick="confirmDelete('君の名は。')">削除</button></td>
+                </tr>
+                <tr>
+                    <td>風の谷のナウシカ</td>
+                    <td>宮崎 駿</td>
+                    <td>978-4-0000-0000-3</td>
+                    <td><button onclick="confirmDelete('風の谷のナウシカ')">削除</button></td>
+                </tr>
+                <tr>
+                    <td>ハリー・ポッターと賢者の石</td>
+                    <td>J.K.ローリング</td>
+                    <td>978-4-0000-0000-4</td>
+                    <td><button onclick="confirmDelete('ハリー・ポッターと賢者の石')">削除</button></td>
+                </tr>
+                <tr>
+                    <td>ドラゴンボール</td>
+                    <td>鳥山 明</td>
+                    <td>978-4-0000-0000-5</td>
+                    <td><button onclick="confirmDelete('ドラゴンボール')">削除</button></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="back-link">
+            <a href="#">← 戻る</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2024 書籍管理システム</p>
+    </footer>
+
+    <script>
+        function confirmDelete(title) {
+            if (confirm(title + "を削除してもよろしいですか？")) {
+                alert(title + "が削除されました。");
+                // 実際の削除処理をここに追加します
+            }
+        }
+    </script>
+
+</body>
+
+</html>

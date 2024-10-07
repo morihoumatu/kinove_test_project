@@ -1,0 +1,29 @@
+@startuml
+title 書籍管理システムの可用性要件
+
+package "可用性要件" {
+    :システム稼働率;
+    :障害時の自動復旧;
+    :バックアップとリストア;
+    :負荷分散;
+}
+
+note right
+  年中無休で99.9%以上の
+  稼働率を維持
+end note
+
+note right
+  障害発生時に自動または迅速に復旧
+end note
+
+note right
+  重要なデータを定期的にバックアップし
+  リストア可能
+end note
+
+note right
+  アクセス集中時に備え負荷分散を行う
+end note
+
+@enduml

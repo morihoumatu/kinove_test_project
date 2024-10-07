@@ -1,0 +1,11 @@
+@startuml
+title 書籍管理システム - ER図
+
+Book "1" -- "0..*" Reservation : "貸出予約"
+Book "1" -- "0..*" Loan : "貸出履歴"
+User "1" -- "0..*" Reservation : "貸出予約"
+User "1" -- "0..*" Loan : "貸出履歴"
+Book "1" -- "1" Inventory : "在庫管理"
+
+
+@enduml

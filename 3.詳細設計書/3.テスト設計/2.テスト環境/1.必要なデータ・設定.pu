@@ -1,0 +1,33 @@
+@startuml
+title 書籍管理システム - テスト環境の必要なデータ・設定
+
+package "テスト環境" {
+    rectangle "テストデータ" as TestData {
+        note as DataNote
+            - 書籍情報
+            - ユーザー情報
+            - 貸出予約情報
+        end note
+    }
+
+    rectangle "設定" as Config {
+        note as ConfigNote
+            - データベース初期化設定
+            - APIエンドポイントのベースURL設定
+            - テストユーザーの認証情報
+        end note
+    }
+
+    rectangle "モックサービス" as MockService {
+        note as MockNote
+            - 外部APIモック (Google Books, Twilio)
+            - OAuth認証モック (Google, Facebook)
+        end note
+    }
+}
+
+' 各テスト環境要素の関係を示す矢印
+TestData --> Config : 利用する設定に基づきデータを準備
+TestData --> MockService : テストデータでモックサービスを利用
+Config --> MockService : モックサービスに設定を適用
+@enduml

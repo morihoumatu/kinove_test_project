@@ -1,0 +1,28 @@
+@startuml
+title 書籍管理システム - ユースケース一覧
+
+actor "一般ユーザー" as User
+actor "管理者" as Admin
+actor "図書館スタッフ" as Staff
+
+package "書籍管理システム" {
+    usecase "書籍検索" as UC_Search
+    usecase "在庫確認" as UC_CheckStock
+    usecase "貸出予約" as UC_Reserve
+    usecase "書籍登録" as UC_Register
+    usecase "書籍情報編集" as UC_Edit
+    usecase "書籍削除" as UC_Delete
+}
+
+User --> UC_Search : 検索
+User --> UC_CheckStock : 在庫確認
+User --> UC_Reserve : 貸出予約
+
+Staff --> UC_Search : 検索
+Staff --> UC_CheckStock : 在庫確認
+
+Admin --> UC_Register : 登録
+Admin --> UC_Edit : 編集
+Admin --> UC_Delete : 削除
+
+@enduml

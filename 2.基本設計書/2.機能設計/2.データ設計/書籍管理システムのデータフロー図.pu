@@ -1,0 +1,27 @@
+@startuml
+title 書籍管理システムのデータフロー図
+
+actor "一般ユーザー" as User
+actor "管理者" as Admin
+actor "図書館スタッフ" as Staff
+
+entity "書籍情報" as BookInfo
+entity "在庫情報" as Inventory
+entity "貸出情報" as LoanInfo
+entity "貸出予約情報" as ReserveInfo
+
+User -> BookInfo : 書籍の検索
+User -> Inventory : 在庫状況の確認
+User -> ReserveInfo : 貸出予約の作成
+
+Admin -> BookInfo : 書籍の登録・編集・削除
+Admin -> Inventory : 在庫情報の更新
+
+Staff -> LoanInfo : 貸出および返却の登録
+Staff -> Inventory : 在庫情報の更新
+
+BookInfo --> User : 検索結果の提供
+Inventory --> User : 在庫状況の提供
+ReserveInfo --> User : 予約確認情報
+
+@enduml

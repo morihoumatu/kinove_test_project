@@ -1,0 +1,36 @@
+@startuml
+actor "一般ユーザー" as User
+actor "管理者" as Admin
+actor "図書館スタッフ" as Staff
+entity "書籍管理システム" as System
+
+User -> System: 書籍の検索を依頼
+System -> User: 検索結果を表示
+
+User -> System: 貸出予約を依頼
+System -> System: 在庫確認
+alt 在庫がある場合
+    System -> User: 貸出予約完了通知
+else 在庫が不足している場合
+    System -> User: 予約不可の通知
+end
+
+Admin -> System: 新しい書籍情報を登録
+System -> System: 書籍情報をデータベースに保存
+System -> Admin: 登録完了の通知
+
+Admin -> System: 既存書籍の編集を依頼
+System -> System: 書籍情報を更新
+System -> Admin: 更新完了の通知
+
+Admin -> System: 書籍情報の削除を依頼
+alt 書籍が貸出中でない場合
+    System -> System: 書籍情報を削除
+    System -> Admin: 削除完了の通知
+else 書籍が貸出中の場合
+    System -> Admin: 削除不可の通知
+end
+
+Staff -> System: 書籍の在庫確認を依頼
+System -> Staff: 在庫情報を表示
+@enduml

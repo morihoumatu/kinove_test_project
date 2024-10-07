@@ -1,0 +1,48 @@
+@startuml
+title 書籍管理システム - データベーステーブル詳細
+
+entity "書籍 (Book)" {
+  * 書籍ID : INT [PK]
+  --
+  * タイトル : VARCHAR(255)
+  * 著者 : VARCHAR(255)
+  * ジャンル : VARCHAR(100)
+  * ISBN : VARCHAR(20) [UNIQUE]
+  * 発行日 : DATE
+  * 在庫数 : INT
+}
+
+entity "ユーザー (User)" {
+  * ユーザーID : INT [PK]
+  --
+  * 氏名 : VARCHAR(100)
+  * メールアドレス : VARCHAR(100) [UNIQUE]
+  * パスワード : VARCHAR(255)
+  * 権限 : ENUM('一般ユーザー', '管理者', '図書館スタッフ')
+}
+
+entity "貸出予約 (Reservation)" {
+  * 予約ID : INT [PK]
+  --
+  * ユーザーID : INT [FK -> User.ユーザーID]
+  * 書籍ID : INT [FK -> Book.書籍ID]
+  * 予約日 : DATE
+  * 状態 : ENUM('予約中', '完了')
+}
+
+entity "貸出履歴 (Loan)" {
+  * 貸出ID : INT [PK]
+  --
+  * ユーザーID : INT [FK -> User.ユーザーID]
+  * 書籍ID : INT [FK -> Book.書籍ID]
+  * 貸出日 : DATE
+  * 返却日 : DATE
+}
+
+entity "在庫 (Inventory)" {
+  * 書籍ID : INT [PK, FK -> Book.書籍ID]
+  --
+  * 在庫数 : INT
+  * 場所 : VARCHAR(100)
+}
+@enduml

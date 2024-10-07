@@ -1,0 +1,36 @@
+@startuml
+title 書籍管理システム - テスト用アカウントの作成
+
+package "テスト用アカウント" {
+    rectangle "一般ユーザーアカウント" as UserAccount {
+        note as UserNote
+            - ユーザーID: 1001
+            - ユーザー名: 一般テストユーザー
+            - 権限: 一般ユーザー
+            - ログイン情報: user_test / password
+        end note
+    }
+
+    rectangle "管理者アカウント" as AdminAccount {
+        note as AdminNote
+            - ユーザーID: 2001
+            - ユーザー名: 管理者テストユーザー
+            - 権限: 管理者
+            - ログイン情報: admin_test / password
+        end note
+    }
+
+    rectangle "図書館スタッフアカウント" as StaffAccount {
+        note as StaffNote
+            - ユーザーID: 3001
+            - ユーザー名: スタッフテストユーザー
+            - 権限: 図書館スタッフ
+            - ログイン情報: staff_test / password
+        end note
+    }
+}
+
+' 各アカウントの関係
+UserAccount --> StaffAccount : 連携操作 (貸出予約など)
+AdminAccount --> StaffAccount : 管理者がスタッフを管理
+@enduml

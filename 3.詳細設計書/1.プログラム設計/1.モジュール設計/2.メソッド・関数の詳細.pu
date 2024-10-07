@@ -1,0 +1,91 @@
+@startuml
+title 書籍管理システム - メソッド・関数の詳細
+
+package "モジュール設計" {
+
+    package "書籍管理モジュール" {
+        class BookService {
+            + addBook(title: String, author: String, isbn: String, stock: int): boolean
+            + updateBook(bookId: int, title: String, author: String, isbn: String, stock: int): boolean
+            + deleteBook(bookId: int): boolean
+        }
+
+        BookService : addBook()
+        BookService : updateBook()
+        BookService : deleteBook()
+
+        note right of BookService::addBook
+        書籍を登録するメソッド。引数にタイトル、著者、ISBN、在庫数を受け取り、書籍を追加します。
+        返り値は成功/失敗を示す boolean です。
+        end note
+
+        note right of BookService::updateBook
+        書籍情報を更新するメソッド。書籍IDを指定し、書籍情報を更新します。
+        返り値は成功/失敗を示す boolean です。
+        end note
+
+        note right of BookService::deleteBook
+        書籍を削除するメソッド。書籍IDを指定して書籍を削除します。
+        返り値は成功/失敗を示す boolean です。
+        end note
+    }
+
+    package "検索モジュール" {
+        class SearchService {
+            + searchBooks(keyword: String): List<Book>
+            + getBookDetails(bookId: int): Book
+        }
+
+        SearchService : searchBooks()
+        SearchService : getBookDetails()
+
+        note right of SearchService::searchBooks
+        キーワードで書籍を検索するメソッド。引数に検索キーワードを受け取り、該当する書籍のリストを返します。
+        end note
+
+        note right of SearchService::getBookDetails
+        書籍の詳細情報を取得するメソッド。書籍IDを指定して書籍情報を返します。
+        end note
+    }
+
+    package "貸出予約モジュール" {
+        class ReservationService {
+            + createReservation(userId: int, bookId: int): boolean
+            + cancelReservation(reservationId: int): boolean
+        }
+
+        ReservationService : createReservation()
+        ReservationService : cancelReservation()
+
+        note right of ReservationService::createReservation
+        貸出予約を作成するメソッド。引数にユーザーIDと書籍IDを受け取り、予約を作成します。
+        返り値は成功/失敗を示す boolean です。
+        end note
+
+        note right of ReservationService::cancelReservation
+        貸出予約をキャンセルするメソッド。予約IDを指定して予約をキャンセルします。
+        返り値は成功/失敗を示す boolean です。
+        end note
+    }
+
+    package "ユーザー管理モジュール" {
+        class UserService {
+            + registerUser(name: String, email: String, password: String): boolean
+            + authenticateUser(email: String, password: String): User
+        }
+
+        UserService : registerUser()
+        UserService : authenticateUser()
+
+        note right of UserService::registerUser
+        新しいユーザーを登録するメソッド。引数にユーザー名、メールアドレス、パスワードを受け取り、ユーザーを登録します。
+        返り値は成功/失敗を示す boolean です。
+        end note
+
+        note right of UserService::authenticateUser
+        ユーザーの認証を行うメソッド。メールアドレスとパスワードを受け取り、認証されたユーザー情報を返します。
+        end note
+    }
+}
+
+@enduml

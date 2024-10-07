@@ -1,0 +1,55 @@
+@startuml
+title 書籍管理システムのエンティティ概要図
+
+entity "書籍 (Book)" {
+    * 書籍ID : UUID [PK]
+    --
+    タイトル : String
+    著者 : String
+    ジャンル : String
+    ISBN : String
+    発行日 : Date
+    在庫数 : Integer
+}
+
+entity "ユーザー (User)" {
+    * ユーザーID : UUID [PK]
+    --
+    氏名 : String
+    メールアドレス : String
+    パスワード : String
+    権限 : String
+}
+
+entity "貸出予約 (Reservation)" {
+    * 予約ID : UUID [PK]
+    --
+    ユーザーID : UUID [FK]
+    書籍ID : UUID [FK]
+    予約日 : Date
+    状態 : String
+}
+
+entity "貸出履歴 (Loan)" {
+    * 貸出ID : UUID [PK]
+    --
+    ユーザーID : UUID [FK]
+    書籍ID : UUID [FK]
+    貸出日 : Date
+    返却日 : Date
+}
+
+entity "在庫 (Inventory)" {
+    * 書籍ID : UUID [FK]
+    --
+    在庫数 : Integer
+    場所 : String
+}
+
+User ||--o{ Reservation : "1対多"
+User ||--o{ Loan : "1対多"
+Book ||--o{ Reservation : "1対多"
+Book ||--o{ Loan : "1対多"
+Book ||--o| Inventory : "1対1"
+
+@enduml

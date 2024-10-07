@@ -1,0 +1,29 @@
+@startuml
+title 書籍管理システムの機能詳細
+
+package "機能一覧" {
+    usecase "書籍の検索" as UC1
+    usecase "書籍の登録" as UC2
+    usecase "書籍の編集" as UC3
+    usecase "書籍の削除" as UC4
+    usecase "貸出予約" as UC5
+    usecase "在庫確認" as UC6
+}
+
+actor 一般ユーザー
+actor 管理者
+actor 図書館スタッフ
+
+一般ユーザー --> UC1 : 書籍の検索
+一般ユーザー --> UC5 : 貸出予約
+一般ユーザー --> UC6 : 在庫確認
+
+管理者 --> UC2 : 書籍の登録
+管理者 --> UC3 : 書籍の編集
+管理者 --> UC4 : 書籍の削除
+管理者 --> UC6 : 在庫確認
+
+図書館スタッフ --> UC1 : 書籍の検索
+図書館スタッフ --> UC6 : 在庫確認
+
+@enduml

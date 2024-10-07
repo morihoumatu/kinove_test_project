@@ -1,0 +1,22 @@
+@startuml
+title 書籍管理システムの外部システムとAPI構成図
+
+package "書籍管理システム" {
+    [クライアント] --> [Webサーバ]
+    [Webサーバ] --> [アプリケーションサーバ]
+    [アプリケーションサーバ] --> [データベース]
+}
+
+package "外部システムとAPI" {
+    [Google Books API]
+    [OAuth認証サービス]
+    [Twilio SMS API]
+    [PayPal API]
+}
+
+[アプリケーションサーバ] --> [Google Books API] : 書籍情報の取得
+[クライアント] --> [OAuth認証サービス] : ログイン認証
+[アプリケーションサーバ] --> [Twilio SMS API] : 通知の送信
+[アプリケーションサーバ] --> [PayPal API] : 決済処理
+
+@enduml
